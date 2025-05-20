@@ -1,0 +1,247 @@
+  /* Base Styles */
+  body {
+    font-family: sans-serif;
+    color: #fff;
+    transition: all 0.5s ease;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Time-based Background Themes */
+  body.morning {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    animation: sunrise 15s infinite alternate;
+  }
+
+  body.afternoon {
+    background: linear-gradient(135deg, #4b6cb7, #182848);
+    animation: clouds 20s infinite alternate;
+  }
+
+  body.evening {
+    background: linear-gradient(135deg, #e96443, #904e95);
+    animation: sunset 15s infinite alternate;
+  }
+
+  body.night {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    animation: stars 30s infinite alternate;
+  }
+
+  /* Background Animations */
+  @keyframes sunrise {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+  }
+
+  @keyframes sunset {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+  }
+
+  @keyframes clouds {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  @keyframes stars {
+    0% { background-size: 100% 100%; }
+    100% { background-size: 150% 150%; }
+  }
+
+  /* Particles Effect */
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  /* Container adjustments */
+  .container {
+    max-width: 900px;
+    margin: auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Section styling */
+  .section {
+    margin: 20px 0;
+    padding: 20px;
+    background: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000;
+    transition: transform 0.3s ease;
+  }
+
+  .section:hover {
+    transform: scale(1.02);
+  }
+
+  /* Big Current Time Section */
+  .large-section {
+    font-size: 1.6em;
+    padding: 30px;
+  }
+
+  /* Flexbox for three tools */
+  .flex-container {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .flex-container .section {
+    flex: 1;
+    min-width: 250px;
+  }
+
+  /* Inputs and buttons */
+  input, button {
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 8px;
+  }
+
+  button {
+    background: #03dac6;
+    color: #000;
+    cursor: pointer;
+  }
+
+  /* Stop Sound Button */
+  #stopSoundBtn {
+    margin-top: 20px;
+    background-color: red;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+  }
+
+  /* Upload container */
+  .uploadContainer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  /* Laps styling */
+  #lapsContainer {
+    margin-top: 15px;
+    max-height: 150px;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 5px;
+  }
+
+  .lap-item {
+    padding: 5px;
+    margin: 3px 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .lap-number {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  .lap-time {
+    font-family: monospace;
+  }
+
+  /* Add to your CSS file */
+  .preset-timers {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .preset {
+    background: rgba(3, 218, 198, 0.2);
+    color: #03dac6;
+    border: 1px solid #03dac6;
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9em;
+  }
+
+  .preset:hover {
+    background: rgba(3, 218, 198, 0.4);
+  }
+
+  .preset:active {
+    transform: scale(0.95);
+  }
+  /* Add to CSS */
+  .preset.active {
+    background: #03dac6;
+    color: #000;
+  }
+  /* ===== Timer Progress & Color Change ===== */
+#timerDisplayWrapper {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+#timerDisplay {
+  font-size: 2em;
+  font-weight: bold;
+  transition: color 0.5s ease;
+  color: white; /* Default white color */
+}
+
+/* Progress bar container */
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  margin-top: 5px;
+  overflow: hidden;
+}
+
+/* Animated progress fill */
+.progress-fill {
+  height: 100%;
+  width: 0%; /* Start at 0% (hidden) */
+  background: #4CAF50;
+  transition: 
+    width 1s linear,
+    background 0.5s ease;
+  opacity: 0; 
+}
+
+.progress-fill.active {
+  opacity: 1; 
+}
+
+.timer-active.timer-safe { color: #4CAF50; }
+.timer-active.timer-warning { color: #FFC107; }
+.timer-active.timer-danger { color: #F44336; }
+
+.weather {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+
+
+
+
+
